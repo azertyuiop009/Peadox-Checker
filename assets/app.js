@@ -11,10 +11,11 @@ function CheckTokens() {
             console.log(token)
             let xhr2 = new XMLHttpRequest();
             xhr2.open('GET', 'https://discord.com/api/v9/users/@me', true);
-            xhr2.setRequestHeader('Authorization', `${token}`)
             xhr2.setRequestHeader('Access-Control-Allow-Origin', '*')
             xhr2.setRequestHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE')
             xhr2.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Origin, Authorization')
+            xhr3.setRequestHeader('Authorization', `${token}`)
+
 
             xhr2.onload = function (d) {
                 var l = JSON.parse(xhr2.response)
@@ -22,12 +23,12 @@ function CheckTokens() {
                 if (xhr2.status == 200) {
                     
                     let xhr3 = new XMLHttpRequest();
-                    xhr3.open('GET', 'https://discord.com/api/v9/users/@me/affinities/users', true);
-                    xhr3.setRequestHeader('Authorization', `${token}`)
-                    
+                    xhr3.open('GET', 'https://discord.com/api/v9/users/@me/affinities/users', true);                    
             xhr3.setRequestHeader('Access-Control-Allow-Origin', '*')
             xhr3.setRequestHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE')
             xhr3.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Origin, Authorization')
+            xhr3.setRequestHeader('Authorization', `${token}`)
+
                     xhr3.onload = function (d) {
                         let res = JSON.parse(xhr3.response)
                         if(xhr3.status !== 403){
